@@ -1,0 +1,5 @@
+src\pages\admin\Materiels.jsx:73 <td>{m.type_materiel}</td>
+src\pages\personnel\Accueil.jsx:77 <td>{d.categorie?.libelle ?? <span style={{color:'#94a3b8'}}>—</span>}</td>
+src\pages\personnel\Historique.jsx:66 <td>{d.categorie?.libelle ?? '—'}</td>
+src\pages\personnel\Materiels.jsx:35 <td>{m.type_materiel}</td>
+src\pages\technicien\Historique.jsx:39 <td>{i.demande?.categorie?.libelle ?? '—'}</td>

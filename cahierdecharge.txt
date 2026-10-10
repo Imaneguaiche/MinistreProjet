@@ -1,0 +1,321 @@
+
+ 
+Table of Contents
+	0
+1.1. Contexte général :	1
+1.2. Justification du projet	1
+2. Problématique	2
+3. Objectifs du projet	2
+3.1. Objectif général	2
+3.2. Objectifs spécifiques	2
+4. Périmètre du projet	3
+4.1. Périmètre fonctionnel	3
+4.2. Limites du projet	3
+5. Description générale du système	3
+5.1. Type d’application	3
+5.2. Authentification	3
+5.3. Gestion des profils	3
+6. Identification des acteurs	3
+6.1. Personnel	3
+6.2. Technicien	4
+6.3. Helpdesk	4
+6.4. Administrateur	4
+7. Spécifications fonctionnelles	4
+7.1. Fonctionnalités du dashboard Personnel	4
+7.1.1. Accueil :	4
+7.1.2. Historique	5
+7.1.3. Gestion des matériels	5
+7.1.4. Création d’une demande	5
+7.2. Fonctionnalités du dashboard Technicien	5
+7.2.1. Boîte de réception	5
+7.2.2. Consultation des détails d’une mission	5
+7.2.3. Validation de la tâche	6
+7.2.4. Rapport d’intervention	6
+7.2.5. Historique	6
+7.3. Fonctionnalités du dashboard Helpdesk	6
+7.3.1. Boîte de réception	6
+7.3.2. Gestion des techniciens	6
+7.3.3. Affectation des tâches	7
+7.3.4. Consultation des statistiques	7
+7.4. Fonctionnalités du dashboard Administrateur	7
+7.4.1. Gestion des comptes utilisateurs	7
+7.4.2. Gestion des techniciens	7
+7.4.3. Gestion des catégories de problèmes	8
+7.4.4. Gestion des matériels	8
+7.4.5. Gestion des départements	8
+7.4.6. Administration globale	8
+8. Fonctionnalités avancées	8
+8.1. Regroupement automatique des tickets similaires	8
+8.2. Export des rapports et statistiques	8
+8.3. Catégorisation automatique des pannes	8
+9. Exigences non fonctionnelles	9
+9.1. Sécurité	9
+9.2. Performance	9
+9.3. Ergonomie	9
+9.4. Compatibilité	9
+9.5. Fiabilité	9
+9.6. Maintenabilité	9
+10. Aperçu de la modélisation des données	10
+11. Contraintes du projet	10
+12. Livrables attendus	10
+13. Planning prévisionnel	11
+14. Résultats attendus	11
+15. Conclusion	11
+
+
+
+
+
+
+1.1. Contexte général :
+Les personnels du Ministère utilisent quotidiennement différents équipements et services informatiques, notamment :
+•	Les ordinateurs ;
+•	Les imprimantes ;
+•	Les équipements réseau ;
+•	Les périphériques informatiques ;
+•	Les logiciels et applications internes.
+Lorsqu’une panne ou un incident technique survient, le personnel contacte généralement l’Helpdesk, qui se charge ensuite de solliciter un technicien compétent. Les interventions peuvent être assurées soit par des techniciens internes, soit par des techniciens externes appartenant à des sociétés partenaires liées au Ministère par convention.
+À l’heure actuelle, ce processus est essentiellement géré de manière manuelle, à travers des appels téléphoniques et des échanges non centralisés, ce qui engendre plusieurs difficultés organisationnelles et fonctionnelles.
+1.2. Justification du projet
+Le fonctionnement actuel ne permet ni une gestion efficace des incidents, ni une bonne traçabilité des interventions. En l’absence d’un système informatisé centralisé, le suivi des demandes reste limité, les délais de traitement sont difficiles à maîtriser et les données nécessaires à l’analyse des pannes ne sont pas disponibles.
+Le développement d’une application web dédiée permettra donc d’apporter une solution structurée, centralisée et évolutive à cette problématique.
+2. Problématique
+Le système actuel de gestion des interventions présente plusieurs insuffisances, parmi lesquelles :
+•	Un coût élevé lié à l’utilisation fréquente des communications téléphoniques ;
+•	Des retards dans le traitement des demandes d’intervention ;
+•	Un manque de visibilité sur la disponibilité réelle des techniciens ;
+•	Une difficulté à identifier rapidement la spécialité adaptée à chaque type de panne ;
+•	L’absence d’un historique structuré des demandes et des interventions ;
+•	L’absence de statistiques sur les équipements les plus touchés par les pannes ;
+•	Une circulation lente de l’information entre les différents acteurs ;
+•	Une perte de temps importante dans la gestion globale du support technique.
+Ces limites montrent la nécessité de mettre en place un système centralisé permettant une gestion plus performante, plus fiable et mieux organisée des interventions techniques.
+3. Objectifs du projet
+3.1. Objectif général
+L’objectif général du projet est de développer une application web centralisée permettant d’assurer la gestion, le suivi et l’optimisation des interventions techniques au sein du Ministère.
+3.2. Objectifs spécifiques
+De manière plus précise, l’application devra permettre de :
+•	Centraliser toutes les demandes d’intervention sur une plateforme unique ;
+•	Améliorer la communication entre les personnels, le Helpdesk, les techniciens et l’administrateur ;
+•	Faciliter l’affectation des techniciens selon leur spécialité et leur disponibilité ;
+•	Assurer un suivi en temps réel de l’état des demandes ;
+•	Conserver un historique détaillé des incidents et des interventions ;
+•	Produire des statistiques utiles à la prise de décision ;
+•	Automatiser certaines opérations telles que la catégorisation des pannes et le regroupement des tickets similaires.
+4. Périmètre du projet
+4.1. Périmètre fonctionnel
+Le projet couvre les fonctionnalités suivantes :
+•	l’authentification des utilisateurs ;
+•	la gestion des rôles et des accès ;
+•	la déclaration des incidents ;
+•	le suivi des demandes d’intervention ;
+•	la gestion des matériels ;
+•	l’affectation des techniciens ;
+•	la rédaction des rapports d’intervention ;
+•	l’exploitation de statistiques ;
+•	l’administration globale de la plateforme.
+4.2. Limites du projet
+Dans le cadre du stage et compte tenu du délai de réalisation, le projet ne prendra pas en charge dans sa première version :
+•	Le développement d’une application mobile native ;
+•	L’intégration avancée avec d’autres systèmes externes du Ministère ;
+•	La maintenance physique automatisée des équipements ;
+•	Les modules prédictifs complexes basés sur l’intelligence artificielle avancée.
+5. Description générale du système
+5.1. Type d’application
+L’application à développer sera une application web reposant sur une architecture client-serveur.
+5.2. Authentification
+L’accès au système se fera via une interface de connexion sécurisée. Chaque utilisateur devra saisir ses identifiants afin d’accéder à son espace personnel.
+5.3. Gestion des profils
+Après authentification, l’utilisateur sera redirigé vers un dashboard spécifique selon son rôle dans le système. Quatre types d’acteurs sont définis :
+•	Le Personnel ;
+•	Le Technicien ;
+•	L’Helpdesk ;
+•	L’administrateur.
+6. Identification des acteurs
+6.1. Personnel
+Le personnel représente l’utilisateur final qui rencontre un problème technique et qui souhaite soumettre une demande d’intervention.
+6.2. Technicien
+Le technicien est chargé de traiter les demandes qui lui sont affectées, d’effectuer les interventions nécessaires et de renseigner les rapports associés.
+6.3. Helpdesk
+L’Helpdesk constitue l’acteur central du système. Il réceptionne les demandes, suit leur évolution, affecte les tâches aux techniciens et consulte les rapports d’intervention.
+6.4. Administrateur
+L’administrateur est responsable de la gestion générale du système, des utilisateurs, des référentiels et des paramètres globaux de l’application.
+7. Spécifications fonctionnelles
+7.1. Fonctionnalités du dashboard Personnel
+Le dashboard du Personnel doit permettre à l’utilisateur de consulter, créer et suivre ses demandes d’intervention.
+7.1.1. Accueil :
+La page d’accueil doit afficher les demandes de l’utilisateur ainsi que leur état d’avancement. Les statuts possibles sont :
+•	En attente ;
+•	En cours ;
+•	Terminé.
+Lorsque la demande est marquée comme terminée, l’utilisateur peut ajouter un feedback sur la qualité de l’intervention. Il doit également disposer d’un bouton lui permettant de réclamer un retard si le traitement de sa demande dépasse un délai jugé acceptable.
+7.1.2. Historique
+Cette rubrique permet au personnel de consulter la liste des demandes clôturées ainsi que l’historique de ses incidents précédents.
+7.1.3. Gestion des matériels
+L’utilisateur doit pouvoir enregistrer les matériels qui se trouvent dans son bureau ou qui sont sous sa responsabilité. Cette fonctionnalité permet d’associer plus facilement un incident à un équipement précis.
+7.1.4. Création d’une demande
+Le personnel doit pouvoir soumettre une nouvelle demande à travers un formulaire contenant notamment :
+•	La description du problème rencontré ;
+•	Le choix du matériel concerné ;
+•	L’ajout éventuel de pièces jointes ;
+•	Toute information complémentaire utile au traitement de la demande.
+7.2. Fonctionnalités du dashboard Technicien
+Le dashboard du Technicien est dédié à la gestion des interventions qui lui sont attribuées.
+7.2.1. Boîte de réception
+Les missions affectées au technicien doivent être présentées dans une interface claire, de préférence sous forme de calendrier ou de planification, permettant d’identifier :
+•	Les tâches affectées ;
+•	Les tâches en cours ;
+•	Les tâches déjà réalisées.
+7.2.2. Consultation des détails d’une mission
+Pour chaque tâche, le technicien doit pouvoir consulter :
+•	La description de la panne ;
+•	Les informations liées au matériel concerné ;
+•	L’identité du personnel ayant effectué la demande ;
+•	Les éventuelles pièces jointes.
+7.2.3. Validation de la tâche
+À l’issue de l’intervention, le technicien doit pouvoir indiquer que la tâche a été réalisée.
+7.2.4. Rapport d’intervention
+Après réalisation d’une intervention, le technicien doit remplir un rapport via un formulaire intelligent contenant :
+•	Les informations générées automatiquement par le système ;
+•	La durée de l’intervention ;
+•	La description du travail effectué ;
+•	Les remarques techniques ;
+•	Un éventuel diagnostic complémentaire.
+7.2.5. Historique
+Le technicien doit pouvoir consulter l’ensemble des interventions déjà réalisées.
+7.3. Fonctionnalités du dashboard Helpdesk
+Le dashboard Helpdesk constitue le centre de supervision opérationnelle de l’application.
+7.3.1. Boîte de réception
+La boîte de réception de l’Helpdesk doit être structurée en deux volets :
+a) Volet Personnel
+Ce volet regroupe :
+•	Les nouvelles demandes d’intervention ;
+•	Les réclamations liées au retard de traitement.
+b) Volet Technicien
+Ce volet regroupe :
+•	Les rapports d’intervention envoyés par les techniciens après traitement.
+7.3.2. Gestion des techniciens
+L’Helpdesk doit pouvoir consulter la liste des techniciens selon :
+•	Leur disponibilité ;
+•	Leur indisponibilité ;
+•	Leur domaine de spécialité :
+o	Hardware ;
+o	Software ;
+o	Réseau.
+7.3.3. Affectation des tâches
+L’Helpdesk doit pouvoir affecter une demande à un technicien en fonction de la nature de la panne, de la spécialité requise et de la disponibilité du technicien.
+Le cycle de vie d’une demande suit les statuts suivants :
+•	En attente : la demande a été créée mais n’a pas encore été affectée ;
+•	En cours : la demande a été affectée à un technicien ;
+•	Terminé : l’intervention a été réalisée et le rapport a été transmis.
+7.3.4. Consultation des statistiques
+L’Helpdesk doit disposer d’un tableau de bord contenant plusieurs visualisations graphiques, notamment :
+•	Un diagramme circulaire représentant l’état des tâches (en attente, en cours, terminées) ;
+•	Un histogramme des matériels les plus fréquemment en panne ;
+•	Un diagramme circulaire représentant les départements les plus touchés par les incidents.
+7.4. Fonctionnalités du dashboard Administrateur
+Le dashboard Administrateur doit permettre la gestion globale de l’application.
+7.4.1. Gestion des comptes utilisateurs
+L’administrateur doit pouvoir créer, modifier, supprimer et consulter les comptes des différents utilisateurs du système.
+7.4.2. Gestion des techniciens
+Il doit pouvoir gérer les fiches des techniciens, leurs spécialités et leur statut de disponibilité.
+7.4.3. Gestion des catégories de problèmes
+L’administrateur doit pouvoir créer et gérer les catégories de pannes utilisées dans le système.
+7.4.4. Gestion des matériels
+Il doit assurer la gestion du référentiel des matériels enregistrés dans l’application.
+7.4.5. Gestion des départements
+L’administrateur doit pouvoir gérer les départements ou services du Ministère.
+7.4.6. Administration globale
+L’administrateur doit pouvoir consulter les statistiques générales de la plateforme et intervenir sur les paramètres techniques ou la base de données.
+8. Fonctionnalités avancées
+8.1. Regroupement automatique des tickets similaires
+Lorsque plusieurs utilisateurs signalent un problème similaire ou identique, le système doit être capable de regrouper ces demandes en un ticket unique afin d’éviter les doublons et d’optimiser le traitement.
+8.2. Export des rapports et statistiques
+L’application devra permettre l’exportation des rapports et statistiques sous des formats exploitables, notamment :
+•	PDF ;
+•	Excel.
+8.3. Catégorisation automatique des pannes
+Le système devra proposer automatiquement une catégorie de panne à partir des informations saisies dans la demande. Les catégories principales pourront être :
+•	Hardware ;
+•	Software ;
+•	Réseau.
+9. Exigences non fonctionnelles
+9.1. Sécurité
+L’application doit garantir :
+•	Une authentification sécurisée ;
+•	Une gestion rigoureuse des droits d’accès ;
+•	La confidentialité et l’intégrité des données ;
+•	La protection contre les accès non autorisés.
+9.2. Performance
+L’application doit offrir :
+•	Un temps de réponse acceptable ;
+•	Une navigation fluide ;
+•	Une capacité à supporter plusieurs utilisateurs simultanés.
+9.3. Ergonomie
+L’interface utilisateur doit être :
+•	Claire ;
+•	Intuitive ;
+•	Facile à prendre en main ;
+•	Adaptée à des profils non techniques.
+9.4. Compatibilité
+L’application doit être accessible depuis les navigateurs web modernes et fonctionner correctement sur les principaux environnements informatiques utilisés au sein du Ministère.
+9.5. Fiabilité
+Le système doit assurer :
+•	La cohérence des informations ;
+•	La sauvegarde régulière des données ;
+•	La traçabilité des principales actions effectuées.
+9.6. Maintenabilité
+La solution développée devra être conçue de manière à faciliter :
+•	Les évolutions futures ;
+•	La correction des anomalies ;
+•	La maintenance du code source et de la base de données.
+10. Aperçu de la modélisation des données
+L’application manipulera principalement les entités suivantes :
+•	Utilisateur ;
+•	Personnel ;
+•	Technicien ;
+•	Helpdesk ;
+•	Administrateur ;
+•	Demande ;
+•	Intervention ;
+•	Matériel ;
+•	Département ;
+•	Catégorie de panne ;
+•	Rapport ;
+•	Pièce jointe ;
+•	Réclamation de retard ;
+•	Feedback.
+11. Contraintes du projet
+Le projet est soumis aux contraintes suivantes :
+•	Une durée de réalisation limitée à un mois ;
+•	Des ressources de développement limitées dans le cadre d’un stage ;
+•	La nécessité de produire une solution réaliste, fonctionnelle et démontrable ;
+•	L’adaptation aux besoins spécifiques d’un environnement administratif ;
+•	La prise en compte de la simplicité d’utilisation pour tous les acteurs.
+12. Livrables attendus
+À l’issue du projet, les livrables attendus sont les suivants :
+•	Le cahier des charges ;
+•	Les diagrammes UML ;
+•	Le modèle de base de données ;
+•	L’application web fonctionnelle ;
+•	La documentation technique ;
+•	Le guide d’utilisation ;
+•	Le rapport final de stage.
+13. Planning prévisionnel
+Phase	Durée estimée
+Analyse des besoins et rédaction du cahier des charges	4 jours
+Conception UML et base de données	5 jours
+Développement de l’application	12 jours
+Tests et validation	4 jours
+Documentation et finalisation	3 jours
+14. Résultats attendus
+La mise en œuvre de cette application devrait permettre :
+•	De réduire le temps de traitement des incidents ;
+•	D’améliorer la qualité de communication entre les acteurs ;
+•	De mieux organiser le travail des techniciens ;
+•	D’assurer un suivi complet et traçable des demandes ;
+•	De fournir des indicateurs fiables pour l’aide à la décision ;
+•	D’optimiser globalement la gestion des interventions techniques.
+15. Conclusion
+Ce projet de développement d’une application web de gestion des interventions techniques répond à un besoin réel de modernisation du support technique au sein du Ministère. En proposant une plateforme centralisée, sécurisée et structurée, il permettra d’améliorer la gestion des incidents, de renforcer la traçabilité des interventions et d’offrir aux responsables une meilleure visibilité sur les activités du service technique.
+
